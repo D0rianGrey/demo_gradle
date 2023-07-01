@@ -31,7 +31,8 @@ public class MainPageTest {
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = new ChromeOptions()
                 .addArguments("--remote-allow-origins=*")
-                .addArguments("--no-sandbox");
+                .addArguments("--no-sandbox")
+                .setHeadless(true);
         open("https://www.jetbrains.com/");
     }
 
