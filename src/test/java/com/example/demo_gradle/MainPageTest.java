@@ -1,6 +1,7 @@
 package com.example.demo_gradle;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
@@ -31,6 +33,17 @@ public class MainPageTest {
         Configuration.browserCapabilities = new ChromeOptions()
                 .addArguments("--remote-allow-origins=*")
                 .addArguments("--no-sandbox");
+        Configuration.proxyHost = "192.168.0.10";
+        Configuration.remote = "http://localhost:4444/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("85.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        capabilities.setCapability("enableLog", true);
+        Configuration.browserCapabilities = capabilities;
+        Configuration.fileDownload = FileDownloadMode.PROXY;
+        Configuration.proxyEnabled = true;
         open("https://www.jetbrains.com/");
     }
 
