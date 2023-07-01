@@ -2,16 +2,19 @@ package com.example.demo_gradle;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.chrome.ChromeOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainPageTest {
     MainPage mainPage = new MainPage();
@@ -25,6 +28,7 @@ public class MainPageTest {
     @BeforeEach
     public void setUp() {
         // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
+        Configuration.browser = "chrome";
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://www.jetbrains.com/");
     }
@@ -57,7 +61,7 @@ public class MainPageTest {
     }
 
     @Test
-    void test(){
+    void test() {
         Assertions.fail();
     }
 }
