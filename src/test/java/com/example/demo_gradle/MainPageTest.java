@@ -27,7 +27,6 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUp() {
-        Configuration.remote = "http://localhost:8080";
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = new ChromeOptions()
                 .addArguments("--remote-allow-origins=*")
