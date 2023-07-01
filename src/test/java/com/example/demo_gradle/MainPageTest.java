@@ -27,12 +27,11 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUp() {
-        // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
+        Configuration.remote = "http://localhost:8080";
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = new ChromeOptions()
                 .addArguments("--remote-allow-origins=*")
-                .addArguments("--no-sandbox")
-                .setHeadless(true);
+                .addArguments("--no-sandbox");
         open("https://www.jetbrains.com/");
     }
 
