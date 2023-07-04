@@ -29,21 +29,14 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.browserCapabilities = new ChromeOptions()
-                .addArguments("--remote-allow-origins=*")
-                .addArguments("--no-sandbox");
-        Configuration.proxyHost = "192.168.0.10";
+//        Configuration.browser = "chrome";
+//        Configuration.browserCapabilities = new ChromeOptions()
+//                .addArguments("--remote-allow-origins=*")
+//                .addArguments("--no-sandbox");
+//        Configuration.proxyHost = "192.168.0.10";
         Configuration.remote = "http://localhost:4444/wd/hub";
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("85.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        capabilities.setCapability("enableLog", true);
-        Configuration.browserCapabilities = capabilities;
-        Configuration.fileDownload = FileDownloadMode.PROXY;
-        Configuration.proxyEnabled = true;
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "latest";
         open("https://www.jetbrains.com/");
     }
 

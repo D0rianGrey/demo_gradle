@@ -30,6 +30,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation 'com.codeborne:selenide-selenoid:6.15.0'
+    implementation 'com.codeborne:selenide-proxy:6.16.0'
 }
 
 test {
